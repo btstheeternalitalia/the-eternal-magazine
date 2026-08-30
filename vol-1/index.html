@@ -181,7 +181,7 @@
 <div class="stars"></div>
 
 <header>
-  <p class="eyebrow"><a href="../index.ht<p class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none;">&#8592; Archivio</a></p>
+  <p class="eyebrow"><a href="../index.ht<p class="eyebrow<p class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none;">&#8592; Archivio</a></p>
   <h1>THE ETERNAL</h1>
   <p class="subtitle">Volume 1</p>
   <div class="rule"></div>
@@ -223,40 +223,14 @@
     container.appendChild(pageDiv);
   }
 
-// --- suono di sfogliare pagina ---
-let audioCtx;
-function playFlipSound() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  if (!audioCtx) audioCtx = new AudioContext();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
+  // --- suono di sfogliare pagina ---
+  const flipAudio = new Audio('../audio/page-flip.mp3');
+  function playFlipSound() {
+    const sound = flipAudio.cloneNode();
+    sound.volume = 1.0;
+    sound.play().catch(() => {});
+  }
 
-  const duration = 0.28;
-  const bufferSize = audioCtx.sampleRate * duration;
-  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-  const data = buffer.getChannelData(0);
-  for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-
-  const noise = audioCtx.createBufferSource();
-  noise.buffer = buffer;
-
-  const bandpass = audioCtx.createBiquadFilter();
-  bandpass.type = 'bandpass';
-  bandpass.frequency.value = 2200;
-  bandpass.Q.value = 0.6;
-
-  const gainNode = audioCtx.createGain();
-  gainNode.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(0.35, audioCtx.currentTime + 0.02);
-  gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-  noise.connect(bandpass);
-  bandpass.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
-
-  noise.start();
-  noise.stop(audioCtx.currentTime + duration);
-}
-  
   const isMobile = window.innerWidth < 700;
 
   const pageFlip = new St.PageFlip(container, {
@@ -283,9 +257,9 @@ function playFlipSound() {
   }
 
   pageFlip.on('flip', () => {
-  updateIndicator();
-  const flipAudio = new Audio('../audio/page-flip.mp3'); function playFlipSound() { const sound = flipAudio.cloneNode(); sound.volume = 1.0; sound.play().catch(() => {}); } Il cloneNode();
-});
+    updateIndicator();
+    playFlipSound();
+  });
   updateIndicator();
 
   document.getElementById('prev-btn').addEventListener('click', () => pageFlip.flipPrev());
