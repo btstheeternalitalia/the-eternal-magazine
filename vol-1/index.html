@@ -223,6 +223,40 @@
     container.appendChild(pageDiv);
   }
 
+// --- suono di sfogliare pagina ---
+let audioCtx;
+function playFlipSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!audioCtx) audioCtx = new AudioContext();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+
+  const duration = 0.28;
+  const bufferSize = audioCtx.sampleRate * duration;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+
+  const noise = audioCtx.createBufferSource();
+  noise.buffer = buffer;
+
+  const bandpass = audioCtx.createBiquadFilter();
+  bandpass.type = 'bandpass';
+  bandpass.frequency.value = 2200;
+  bandpass.Q.value = 0.6;
+
+  const gainNode = audioCtx.createGain();
+  gainNode.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.35, audioCtx.currentTime + 0.02);
+  gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+  noise.connect(bandpass);
+  bandpass.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  noise.start();
+  noise.stop(audioCtx.currentTime + duration);
+}
+  
   const isMobile = window.innerWidth < 700;
 
   const pageFlip = new St.PageFlip(container, {
@@ -248,7 +282,10 @@
     indicator.textContent = `${current} / ${TOTAL_PAGES}`;
   }
 
-  pageFlip.on('flip', updateIndicator);
+  pageFlip.on('flip', () => {
+  updateIndicator();
+  playFlipSound();
+});
   updateIndicator();
 
   document.getElementById('prev-btn').addEventListener('click', () => pageFlip.flipPrev());
