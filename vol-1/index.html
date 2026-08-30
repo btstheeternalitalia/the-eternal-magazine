@@ -284,7 +284,7 @@ function playFlipSound() {
 
   pageFlip.on('flip', () => {
   updateIndicator();
-  playFlipSound();
+  const flipAudio = new Audio('../audio/page-flip.mp3'); function playFlipSound() { const sound = flipAudio.cloneNode(); sound.volume = 1.0; sound.play().catch(() => {}); } Il cloneNode();
 });
   updateIndicator();
 
