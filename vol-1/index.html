@@ -63,12 +63,10 @@
   h1{
     font-size:clamp(2.6rem, 8vw, 5.2rem);
     margin:0;
+    line-height:1;
     letter-spacing:0.03em;
     font-weight:400;
-    background:linear-gradient(180deg, var(--ink) 0%, var(--army-glow) 120%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    color:#ffffff;
     text-shadow: 0 0 60px rgba(183,156,255,0.25);
   }
 
@@ -183,7 +181,7 @@
 <div class="stars"></div>
 
 <header>
-  <p class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none;">&#8592; Archivio</a> &nbsp;·&nbsp; Fanzine italiano · BTS</p>
+  <p class="eyebrow"><a href="../index.ht<p class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none;">&#8592; Archivio</a></p>
   <h1>THE ETERNAL</h1>
   <p class="subtitle">Volume 1</p>
   <div class="rule"></div>
@@ -236,7 +234,7 @@
     minHeight: 396,
     maxHeight: 1273,
     maxShadowOpacity: 0.5,
-    showCover: false,
+    showCover: true,
     mobileScrollSupport: true,
     usePortrait: isMobile,
     autoSize: true,
