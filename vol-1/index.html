@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE ETERNAL — Vol. 1 | Fanzine BTS ITA</title>
+<meta name="description" content="THE ETERNAL, il fanzine italiano dedicato ai BTS. Sfoglia il Volume 1 online.">
+<style>
+  :root{
+    --void: #0b0a14;
+    --void-deep: #060509;
+    --ink: #f4f1fb;
+    --ink-dim: #b9b3cf;
+    --army: #8b6fd1;
+    --army-glow: #b79cff;
+    --gold: #d8b56c;
+    --line: rgba(183,156,255,0.18);
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,111,209,0.25), transparent),
+      var(--void);
+    color:var(--ink);
+    font-family: 'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* starfield */
+  .stars{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 65% 15%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 85% 60%, rgba(255,255,255,0.4), transparent),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.5), transparent),
+      radial-gradient(1.5px 1.5px at 10% 65%, rgba(255,255,255,0.35), transparent),
+      radial-gradient(1px 1px at 92% 85%, rgba(255,255,255,0.45), transparent);
+    background-repeat:no-repeat;
+    opacity:0.8;
+  }
+
+  header{
+    position:relative; z-index:1;
+    text-align:center;
+    padding:4.5rem 1.5rem 2rem;
+  }
+
+  .eyebrow{
+    font-family:'Futura','Century Gothic',sans-serif;
+    letter-spacing:0.45em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 1rem;
+  }
+
+  h1{
+    font-size:clamp(2.6rem, 8vw, 5.2rem);
+    margin:0;
+    letter-spacing:0.03em;
+    font-weight:400;
+    background:linear-gradient(180deg, var(--ink) 0%, var(--army-glow) 120%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow: 0 0 60px rgba(183,156,255,0.25);
+  }
+
+  .subtitle{
+    font-family:'Futura','Century Gothic',sans-serif;
+    font-size:0.95rem;
+    letter-spacing:0.08em;
+    color:var(--ink-dim);
+    margin-top:0.9rem;
+  }
+
+  .rule{
+    width:64px; height:1px;
+    background:linear-gradient(90deg, transparent, var(--army-glow), transparent);
+    margin:1.8rem auto 0;
+  }
+
+  main{
+    position:relative; z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:1rem 1rem 5rem;
+  }
+
+  #book-container{
+    width:100%;
+    max-width:1000px;
+    display:flex;
+    justify-content:center;
+    touch-action: pan-y;
+  }
+
+  .page{
+    background:#111 no-repeat center/cover;
+  }
+
+  .page img{
+    width:100%; height:100%;
+    object-fit:contain;
+    display:block;
+    -webkit-user-drag:none;
+    user-select:none;
+  }
+
+  .controls{
+    display:flex;
+    align-items:center;
+    gap:1.4rem;
+    margin-top:2rem;
+    font-family:'Futura','Century Gothic',sans-serif;
+  }
+
+  .ctrl-btn{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    width:46px; height:46px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:1.1rem;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .ctrl-btn:hover{ border-color:var(--army-glow); color:var(--army-glow); }
+  .ctrl-btn:active{ transform:scale(0.94); }
+  .ctrl-btn:focus-visible{ outline:2px solid var(--army-glow); outline-offset:2px; }
+
+  #page-indicator{
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    color:var(--ink-dim);
+    min-width:88px;
+    text-align:center;
+  }
+
+  .hint{
+    margin-top:1.1rem;
+    font-family:'Futura','Century Gothic',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    color:rgba(185,179,207,0.55);
+  }
+
+  footer{
+    position:relative; z-index:1;
+    text-align:center;
+    padding:2.5rem 1.5rem 3.5rem;
+    font-family:'Futura','Century Gothic',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    color:rgba(185,179,207,0.5);
+    border-top:1px solid var(--line);
+    margin-top:1rem;
+  }
+
+  footer a{ color:var(--army-glow); text-decoration:none; }
+  footer a:hover{ text-decoration:underline; }
+
+  @media (prefers-reduced-motion: reduce){
+    * { transition:none !important; }
+  }
+
+  @media (max-width:600px){
+    header{ padding:3rem 1rem 1.5rem; }
+    .controls{ gap:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<header>
+  <p class="eyebrow"><a href="../index.html" style="color:inherit;text-decoration:none;">&#8592; Archivio</a> &nbsp;·&nbsp; Fanzine italiano · BTS</p>
+  <h1>THE ETERNAL</h1>
+  <p class="subtitle">Volume 1</p>
+  <div class="rule"></div>
+</header>
+
+<main>
+  <div id="book-container"></div>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="prev-btn" aria-label="Pagina precedente">&#10094;</button>
+    <span id="page-indicator">1 / 46</span>
+    <button class="ctrl-btn" id="next-btn" aria-label="Pagina successiva">&#10095;</button>
+  </div>
+
+  <p class="hint">Trascina l'angolo della pagina, oppure usa le frecce della tastiera</p>
+</main>
+
+<footer>
+  <p>THE ETERNAL — un progetto fan-made, non ufficiale, senza scopo di lucro.<br>
+  <a href="https://www.tiktok.com/@btstheeternalitalia" target="_blank" rel="noopener">@btstheeternalitalia</a></p>
+</footer>
+
+<script src="js/page-flip.browser.js"></script>
+<script>
+  const TOTAL_PAGES = 46;
+  const container = document.getElementById('book-container');
+  const indicator = document.getElementById('page-indicator');
+
+  // Build page elements
+  for (let i = 1; i <= TOTAL_PAGES; i++) {
+    const num = String(i).padStart(2, '0');
+    const pageDiv = document.createElement('div');
+    pageDiv.className = 'page';
+    const img = document.createElement('img');
+    img.src = `images/page-${num}.jpg`;
+    img.alt = `Pagina ${i}`;
+    img.draggable = false;
+    pageDiv.appendChild(img);
+    container.appendChild(pageDiv);
+  }
+
+  const isMobile = window.innerWidth < 700;
+
+  const pageFlip = new St.PageFlip(container, {
+    width: 550,
+    height: 778,
+    size: 'stretch',
+    minWidth: 280,
+    maxWidth: 900,
+    minHeight: 396,
+    maxHeight: 1273,
+    maxShadowOpacity: 0.5,
+    showCover: false,
+    mobileScrollSupport: true,
+    usePortrait: isMobile,
+    autoSize: true,
+    flippingTime: 700
+  });
+
+  pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+
+  function updateIndicator() {
+    const current = pageFlip.getCurrentPageIndex() + 1;
+    indicator.textContent = `${current} / ${TOTAL_PAGES}`;
+  }
+
+  pageFlip.on('flip', updateIndicator);
+  updateIndicator();
+
+  document.getElementById('prev-btn').addEventListener('click', () => pageFlip.flipPrev());
+  document.getElementById('next-btn').addEventListener('click', () => pageFlip.flipNext());
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+    if (e.key === 'ArrowRight') pageFlip.flipNext();
+  });
+</script>
+
+</body>
+</html>
