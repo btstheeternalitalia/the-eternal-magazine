@@ -32,12 +32,12 @@
     .sky-feature{
     position:absolute;
     top:0;
-    right:0;
-    width:55%;
-    max-width:620px;
-    height:650px;
+    left:0;
+    width:100%;
+    aspect-ratio: 1904/803;
     z-index:0;
     pointer-events:none;
+    overflow:hidden;
   }
   .sky-feature svg{ width:100%; height:100%; display:block; }
   
@@ -228,65 +228,35 @@
 
 <div class="stars"></div>
 <div class="sky-feature">
-  <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 1904 803" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
     <defs>
       <path id="spark" d="M0,-9 C1.2,-2 2,-1.2 9,0 C2,1.2 1.2,2 0,9 C-1.2,2 -2,1.2 -9,0 C-2,-1.2 -1.2,-2 0,-9 Z" fill="#ffffff"/>
       <filter id="star-glow" x="-250%" y="-250%" width="600%" height="600%">
-        <feGaussianBlur stdDeviation="2.4" result="blur"/>
+        <feGaussianBlur stdDeviation="3" result="blur"/>
         <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
     </defs>
 
-    <!-- stelline sparse di contorno -->
-    <g fill="#ffffff">
-      <use href="#spark" transform="translate(161.9,75.4) scale(0.45)" opacity="0.43"/>
-      <use href="#spark" transform="translate(267.9,182.8) scale(0.27)" opacity="0.63"/>
-      <use href="#spark" transform="translate(18.7,216.8) scale(0.27)" opacity="0.44"/>
-      <use href="#spark" transform="translate(212.3,413.4) scale(0.29)" opacity="0.5"/>
-      <use href="#spark" transform="translate(313.7,473.9) scale(0.42)" opacity="0.58"/>
-      <use href="#spark" transform="translate(488.1,23.3) scale(0.51)" opacity="0.53"/>
-      <use href="#spark" transform="translate(72.1,58.9) scale(0.34)" opacity="0.77"/>
-      <use href="#spark" transform="translate(90.4,290.8) scale(0.44)" opacity="0.57"/>
-      <use href="#spark" transform="translate(273.9,31.4) scale(0.27)" opacity="0.49"/>
-      <use href="#spark" transform="translate(340.2,213.8) scale(0.34)" opacity="0.66"/>
-      <use href="#spark" transform="translate(226.6,149.9) scale(0.49)" opacity="0.71"/>
-      <use href="#spark" transform="translate(122.0,287.2) scale(0.41)" opacity="0.79"/>
-      <use href="#spark" transform="translate(364.7,144.0) scale(0.54)" opacity="0.45"/>
-      <use href="#spark" transform="translate(209.1,378.6) scale(0.3)" opacity="0.62"/>
-      <use href="#spark" transform="translate(19.6,334.1) scale(0.48)" opacity="0.66"/>
-      <use href="#spark" transform="translate(437.7,156.9) scale(0.46)" opacity="0.67"/>
-      <use href="#spark" transform="translate(289.9,228.1) scale(0.5)" opacity="0.83"/>
-      <use href="#spark" transform="translate(237.0,332.1) scale(0.27)" opacity="0.72"/>
-      <use href="#spark" transform="translate(323.6,496.5) scale(0.5)" opacity="0.53"/>
-      <use href="#spark" transform="translate(192.9,334.3) scale(0.26)" opacity="0.61"/>
-      <use href="#spark" transform="translate(84.0,58.5) scale(0.27)" opacity="0.75"/>
-      <use href="#spark" transform="translate(64.7,123.8) scale(0.37)" opacity="0.79"/>
-      <use href="#spark" transform="translate(40.3,224.6) scale(0.41)" opacity="0.8"/>
-      <use href="#spark" transform="translate(409.6,432.0) scale(0.33)" opacity="0.59"/>
-      <use href="#spark" transform="translate(179.4,442.1) scale(0.54)" opacity="0.47"/>
-      <use href="#spark" transform="translate(88.1,116.0) scale(0.32)" opacity="0.62"/>
-    </g>
-
     <!-- linee della costellazione -->
-    <g stroke="rgba(200,190,255,0.55)" stroke-width="1.4" fill="none">
-      <line x1="60" y1="224" x2="65" y2="60"/>
-      <line x1="65" y1="60" x2="230" y2="204"/>
-      <line x1="230" y1="204" x2="179" y2="306"/>
-      <line x1="179" y1="306" x2="60" y2="224"/>
-      <line x1="230" y1="204" x2="319" y2="237"/>
-      <line x1="319" y1="237" x2="385" y2="268"/>
-      <line x1="385" y1="268" x2="440" y2="440"/>
+    <g stroke="rgba(200,190,255,0.55)" stroke-width="2" fill="none">
+      <line x1="1372" y1="108" x2="1490" y2="178"/>
+      <line x1="1490" y1="178" x2="1522" y2="253"/>
+      <line x1="1522" y1="253" x2="1573" y2="345"/>
+      <line x1="1573" y1="345" x2="1538" y2="425"/>
+      <line x1="1573" y1="345" x2="1748" y2="460"/>
+      <line x1="1538" y1="425" x2="1663" y2="528"/>
+      <line x1="1663" y1="528" x2="1748" y2="460"/>
     </g>
 
     <!-- le 7 stelle principali, a punta -->
     <g filter="url(#star-glow)">
-      <use href="#spark" transform="translate(65,60) scale(1.5)"/>
-      <use href="#spark" transform="translate(60,224) scale(1.2)"/>
-      <use href="#spark" transform="translate(179,306) scale(1.2)"/>
-      <use href="#spark" transform="translate(230,204) scale(1.35)"/>
-      <use href="#spark" transform="translate(319,237) scale(1.2)"/>
-      <use href="#spark" transform="translate(385,268) scale(1.2)"/>
-      <use href="#spark" transform="translate(440,440) scale(1.4)"/>
+      <use href="#spark" transform="translate(1372,108) scale(1.6)"/>
+      <use href="#spark" transform="translate(1490,178) scale(1.3)"/>
+      <use href="#spark" transform="translate(1522,253) scale(1.15)"/>
+      <use href="#spark" transform="translate(1573,345) scale(1.35)"/>
+      <use href="#spark" transform="translate(1538,425) scale(1.15)"/>
+      <use href="#spark" transform="translate(1748,460) scale(1.4)"/>
+      <use href="#spark" transform="translate(1663,528) scale(1.2)"/>
     </g>
   </svg>
 </div>
