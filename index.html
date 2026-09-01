@@ -1,234 +1,222 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE ETERNAL Magazine | Archivio volumi</title>
-<meta name="description" content="THE ETERNAL è il magazine fanmade italiano dedicato ai BTS. Sfoglia tutti i volumi online.">
-<style>
-  :root{
-    --void: #0b0a14;
-    --ink: #f4f1fb;
-    --ink-dim: #b9b3cf;
-    --army: #8b6fd1;
-    --army-glow: #b79cff;
-    --gold: #d8b56c;
-    --line: rgba(183,156,255,0.18);
-    --card-bg: rgba(255,255,255,0.03);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE ETERNAL Magazine | Archivio volumi</title>
+  <meta name="description" content="THE ETERNAL è il magazine fanmade italiano dedicato ai BTS. Sfoglia tutti i volumi online.">
+  <style>
+    :root{
+      --void: #0b0a14;
+      --ink: #f4f1fb;
+      --ink-dim: #b9b3cf;
+      --army: #8b6fd1;
+      --army-glow: #b79cff;
+      --gold: #d8b56c;
+      --line: rgba(183,156,255,0.18);
+      --card-bg: rgba(255,255,255,0.03);
+    }
 
-  *{box-sizing:border-box;}
+    *{box-sizing:border-box;}
 
-  html,body{
-    margin:0; padding:0;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,111,209,0.25), transparent),
-      var(--void);
-    color:var(--ink);
-    font-family: 'Iowan Old Style','Palatino Linotype',Georgia,serif;
-    min-height:100vh;
-  }
+    html,body{
+      margin:0; padding:0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,111,209,0.25), transparent),
+        var(--void);
+      color:var(--ink);
+      font-family: 'Iowan Old Style','Palatino Linotype',Georgia,serif;
+      min-height:100vh;
+    }
 
-    .sky-feature{
-    position:absolute;
-    top:0;
-    right:0;
-    width:55%;
-    max-width:620px;
-    height:650px;
-    z-index:0;
-    pointer-events:none;
-  }
-  .sky-feature svg{ width:100%; height:100%; display:block; }
-  
-  .stars{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:
-      radial-gradient(2px 2px at 8% 12%, rgba(255,255,255,0.9), transparent),
-      radial-gradient(1.5px 1.5px at 22% 28%, rgba(255,255,255,0.7), transparent),
-      radial-gradient(2.2px 2.2px at 38% 8%, rgba(255,255,255,0.85), transparent),
-      radial-gradient(1.5px 1.5px at 50% 35%, rgba(255,255,255,0.65), transparent),
-      radial-gradient(2px 2px at 65% 18%, rgba(255,255,255,0.8), transparent),
-      radial-gradient(1.5px 1.5px at 78% 42%, rgba(255,255,255,0.7), transparent),
-      radial-gradient(2.4px 2.4px at 90% 10%, rgba(255,255,255,0.9), transparent),
-      radial-gradient(1.5px 1.5px at 5% 55%, rgba(255,255,255,0.65), transparent),
-      radial-gradient(2px 2px at 30% 65%, rgba(255,255,255,0.8), transparent),
-      radial-gradient(1.6px 1.6px at 60% 72%, rgba(255,255,255,0.7), transparent),
-      radial-gradient(2.3px 2.3px at 85% 60%, rgba(255,255,255,0.85), transparent),
-      radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.6), transparent),
-      radial-gradient(2px 2px at 45% 90%, rgba(255,255,255,0.75), transparent),
-      radial-gradient(1.8px 1.8px at 72% 92%, rgba(255,255,255,0.7), transparent),
-      radial-gradient(2.5px 2.5px at 95% 80%, rgba(255,255,255,0.9), transparent);
-    background-size: 380px 420px;
-    background-repeat: repeat;
-    opacity:0.95;
-  }
+    .stars{
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        radial-gradient(2px 2px at 8% 12%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1.5px 1.5px at 22% 28%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2.2px 2.2px at 38% 8%, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 50% 35%, rgba(255,255,255,0.65), transparent),
+        radial-gradient(2px 2px at 65% 18%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1.5px 1.5px at 78% 42%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2.4px 2.4px at 90% 10%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1.5px 1.5px at 5% 55%, rgba(255,255,255,0.65), transparent),
+        radial-gradient(2px 2px at 30% 65%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1.6px 1.6px at 60% 72%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2.3px 2.3px at 85% 60%, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 45% 90%, rgba(255,255,255,0.75), transparent),
+        radial-gradient(1.8px 1.8px at 72% 92%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2.5px 2.5px at 95% 80%, rgba(255,255,255,0.9), transparent);
+      background-size: 380px 420px;
+      background-repeat: repeat;
+      opacity:0.95;
+    }
 
-  header{
-    position:relative; z-index:1;
-    text-align:center;
-    padding:4.5rem 1.5rem 2.5rem;
-  }
-  .eyebrow{
-    font-family:'Futura','Century Gothic',sans-serif;
-    letter-spacing:0.45em;
-    font-size:0.7rem;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin:0 0 1rem;
-  }
+    header{
+      position:relative; z-index:1;
+      text-align:center;
+      padding:4.5rem 1.5rem 2.5rem;
+    }
+    .eyebrow{
+      font-family:'Futura','Century Gothic',sans-serif;
+      letter-spacing:0.45em;
+      font-size:0.7rem;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin:0 0 1rem;
+    }
 
-  h1{
-    font-size:clamp(2.6rem, 8vw, 5.2rem);
-    margin:0;
-    line-height:1;
-    letter-spacing:0.03em;
-    font-weight:400;
-    color:#ffffff;
-    text-shadow: 0 0 60px rgba(183,156,255,0.25);
-  }
+    h1{
+      font-size:clamp(2.6rem, 8vw, 5.2rem);
+      margin:0;
+      line-height:1;
+      letter-spacing:0.03em;
+      font-weight:400;
+      color:#ffffff;
+      text-shadow: 0 0 60px rgba(183,156,255,0.25);
+    }
 
-  .subtitle{
-    font-family:'Futura','Century Gothic',sans-serif;
-    font-size:0.95rem;
-    letter-spacing:0.08em;
-    color:var(--ink-dim);
-    margin-top:0.1rem;
-    max-width:520px;
-    margin-left:auto; margin-right:auto;
-    line-height:1;
-  }
+    .subtitle{
+      font-family:'Futura','Century Gothic',sans-serif;
+      font-size:0.95rem;
+      letter-spacing:0.08em;
+      color:var(--ink-dim);
+      margin-top:0.1rem;
+      max-width:520px;
+      margin-left:auto; margin-right:auto;
+      line-height:1;
+    }
 
-.tagline{
-    font-family:'Futura','Century Gothic',sans-serif;
-    font-size:0.95rem;
-    letter-spacing:0.08em;
-    color:#ffffff;
-    margin-top:0.1rem;
-  }
+    .tagline{
+      font-family:'Futura','Century Gothic',sans-serif;
+      font-size:0.95rem;
+      letter-spacing:0.08em;
+      color:#ffffff;
+      margin-top:0.1rem;
+    }
 
-  .rule{
-    width:64px; height:1px;
-    background:linear-gradient(90deg, transparent, var(--army-glow), transparent);
-    margin:1.8rem auto 0;
-  }
+    .rule{
+      width:64px; height:1px;
+      background:linear-gradient(90deg, transparent, var(--army-glow), transparent);
+      margin:1.8rem auto 0;
+    }
 
-  main{
-    position:relative; z-index:1;
-    max-width:1000px;
-    margin:0 auto;
-    padding:0 1.5rem 6rem;
-  }
+    main{
+      position:relative; z-index:1;
+      max-width:1000px;
+      margin:0 auto;
+      padding:0 1.5rem 6rem;
+    }
 
-  .archive-label{
-    font-family:'Futura','Century Gothic',sans-serif;
-    letter-spacing:0.2em;
-    font-size:0.72rem;
-    text-transform:uppercase;
-    color:var(--ink-dim);
-    text-align:center;
-    margin-bottom:2.5rem;
-  }
+    .archive-label{
+      font-family:'Futura','Century Gothic',sans-serif;
+      letter-spacing:0.2em;
+      font-size:0.72rem;
+      text-transform:uppercase;
+      color:var(--ink-dim);
+      text-align:center;
+      margin-bottom:2.5rem;
+    }
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-    gap:1.75rem;
-  }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+      gap:1.75rem;
+    }
 
-  .issue-card{
-    position:relative;
-    display:block;
-    text-decoration:none;
-    color:inherit;
-    border:1px solid var(--line);
-    border-radius:2px;
-    background:var(--card-bg);
-    overflow:hidden;
-    transition:border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-  }
+    .issue-card{
+      position:relative;
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border:1px solid var(--line);
+      border-radius:2px;
+      background:var(--card-bg);
+      overflow:hidden;
+      transition:border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
 
-  .issue-card:hover, .issue-card:focus-visible{
-    border-color:var(--army-glow);
-    transform:translateY(-4px);
-    box-shadow:0 18px 40px rgba(139,111,209,0.22);
-  }
-  .issue-card:focus-visible{ outline:2px solid var(--army-glow); outline-offset:3px; }
+    .issue-card:hover, .issue-card:focus-visible{
+      border-color:var(--army-glow);
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(139,111,209,0.22);
+    }
+    .issue-card:focus-visible{ outline:2px solid var(--army-glow); outline-offset:3px; }
 
-  .issue-cover{
-    aspect-ratio:993/1404;
-    width:100%;
-    background:#111 center/cover no-repeat;
-    display:flex; align-items:flex-end;
-  }
+    .issue-cover{
+      aspect-ratio:993/1404;
+      width:100%;
+      background:#111 center/cover no-repeat;
+      display:flex; align-items:flex-end;
+    }
 
-  .issue-meta{
-    padding:1.1rem 1.2rem 1.3rem;
-    font-family:'Futura','Century Gothic',sans-serif;
-    text-align:center;
-  }
+    .issue-meta{
+      padding:1.1rem 1.2rem 1.3rem;
+      font-family:'Futura','Century Gothic',sans-serif;
+      text-align:center;
+    }
 
-  .issue-number{
-    font-size:0.68rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin:0;
-  }
-  
-  .issue-title{
-    font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;
-    font-size:1.15rem;
-    margin:0;
-    color:var(--ink);
-  }
+    .issue-number{
+      font-size:0.68rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin:0;
+    }
+    
+    .issue-title{
+      font-family:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+      font-size:1.15rem;
+      margin:0;
+      color:var(--ink);
+    }
 
-  /* placeholder card for a future issue */
-  .issue-card.placeholder{
-    cursor:default;
-    opacity:0.55;
-  }
-  .issue-card.placeholder:hover{
-    transform:none;
-    box-shadow:none;
-    border-color:var(--line);
-  }
-  .issue-card.placeholder .issue-cover{
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(255,255,255,0.015);
-  }
-  .placeholder-mark{
-    font-family:'Futura','Century Gothic',sans-serif;
-    font-size:0.68rem;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:rgba(185,179,207,0.4);
-  }
+    /* placeholder card for a future issue */
+    .issue-card.placeholder{
+      cursor:default;
+      opacity:0.55;
+    }
+    .issue-card.placeholder:hover{
+      transform:none;
+      box-shadow:none;
+      border-color:var(--line);
+    }
+    .issue-card.placeholder .issue-cover{
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(255,255,255,0.015);
+    }
+    .placeholder-mark{
+      font-family:'Futura','Century Gothic',sans-serif;
+      font-size:0.68rem;
+      letter-spacing:0.2em;
+      text-transform:uppercase;
+      color:rgba(185,179,207,0.4);
+    }
 
-  footer{
-    position:relative; z-index:1;
-    text-align:center;
-    padding:2.5rem 1.5rem 3.5rem;
-    font-family:'Futura','Century Gothic',sans-serif;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
-    color:rgba(185,179,207,0.5);
-    border-top:1px solid var(--line);
-  }
+    footer{
+      position:relative; z-index:1;
+      text-align:center;
+      padding:2.5rem 1.5rem 3.5rem;
+      font-family:'Futura','Century Gothic',sans-serif;
+      font-size:0.72rem;
+      letter-spacing:0.06em;
+      color:rgba(185,179,207,0.5);
+      border-top:1px solid var(--line);
+    }
 
-  footer a{ color:var(--army-glow); text-decoration:none; }
-  footer a:hover{ text-decoration:underline; }
+    footer a{ color:var(--army-glow); text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
 
-  @media (prefers-reduced-motion: reduce){
-    * { transition:none !important; }
-  }
-</style>
+    @media (prefers-reduced-motion: reduce){
+      * { transition:none !important; }
+    }
+  </style>
 </head>
 <body>
 
 <div class="stars"></div>
 <div class="sky-feature">
-  <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
     <defs>
       <path id="spark" d="M0,-9 C1.2,-2 2,-1.2 9,0 C2,1.2 1.2,2 0,9 C-1.2,2 -2,1.2 -9,0 C-2,-1.2 -1.2,-2 0,-9 Z" fill="#ffffff"/>
       <filter id="star-glow" x="-250%" y="-250%" width="600%" height="600%">
@@ -269,24 +257,24 @@
 
     <!-- linee della costellazione -->
     <g stroke="rgba(200,190,255,0.55)" stroke-width="1.4" fill="none">
-      <line x1="60" y1="224" x2="65" y2="60"/>
-      <line x1="65" y1="60" x2="230" y2="204"/>
-      <line x1="230" y1="204" x2="179" y2="306"/>
-      <line x1="179" y1="306" x2="60" y2="224"/>
-      <line x1="230" y1="204" x2="319" y2="237"/>
-      <line x1="319" y1="237" x2="385" y2="268"/>
-      <line x1="385" y1="268" x2="440" y2="440"/>
+      <line x1="720" y1="130" x2="770" y2="280"/>
+      <line x1="770" y1="280" x2="800" y2="400"/>
+      <line x1="800" y1="400" x2="840" y2="520"/>
+      <line x1="840" y1="520" x2="950" y2="520"/>
+      <line x1="950" y1="520" x2="900" y2="650"/>
+      <line x1="900" y1="650" x2="800" y2="650"/>
+      <line x1="800" y1="650" x2="840" y2="520"/>
     </g>
 
     <!-- le 7 stelle principali, a punta -->
     <g filter="url(#star-glow)">
-      <use href="#spark" transform="translate(65,60) scale(1.5)"/>
-      <use href="#spark" transform="translate(60,224) scale(1.2)"/>
-      <use href="#spark" transform="translate(179,306) scale(1.2)"/>
-      <use href="#spark" transform="translate(230,204) scale(1.35)"/>
-      <use href="#spark" transform="translate(319,237) scale(1.2)"/>
-      <use href="#spark" transform="translate(385,268) scale(1.2)"/>
-      <use href="#spark" transform="translate(440,440) scale(1.4)"/>
+      <use href="#spark" transform="translate(720,130) scale(1.5)"/>
+      <use href="#spark" transform="translate(770,280) scale(1.35)"/>
+      <use href="#spark" transform="translate(800,400) scale(1.35)"/>
+      <use href="#spark" transform="translate(840,520) scale(1.35)"/>
+      <use href="#spark" transform="translate(950,520) scale(1.35)"/>
+      <use href="#spark" transform="translate(900,650) scale(1.35)"/>
+      <use href="#spark" transform="translate(800,650) scale(1.35)"/>
     </g>
   </svg>
 </div>
