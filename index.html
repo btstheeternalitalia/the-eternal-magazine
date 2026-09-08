@@ -248,6 +248,14 @@
   }
 </style>
 </head>
+  <script>
+  fetch('https://countapi.mileshilliard.com/api/v1/hit/btstheeternalitalia-the-eternal-magazine-totale')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visit-counter').textContent = data.value.toLocaleString('it-IT') + ' visualizzazioni totali';
+    })
+    .catch(() => {});
+</script>
 <body>
 
 <div class="stars"></div>
