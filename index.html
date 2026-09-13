@@ -312,13 +312,21 @@
   </div>
 </a>
 
-    <div class="issue-card placeholder" aria-hidden="true">
+    <div class="issue-card placeholder" id="vol2-card" aria-hidden="true">
   <div class="issue-cover" style="background-image:url('vol-2/teaser.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
   <div class="issue-meta">
     <p class="issue-number">Volume 2</p>
   </div>
 </div>
 
+    <div class="issue-card placeholder" aria-hidden="true">
+  <div class="issue-cover">
+    <span class="placeholder-mark">Prossimamente</span>
+  </div>
+  <div class="issue-meta">
+    <p class="issue-number">Volume 3</p>
+  </div>
+</div>
   </div>
 </main>
 
@@ -336,5 +344,22 @@
   </p>
 </footer>
 
+  <script>
+  (function(){
+    var target = new Date('2026-09-14T12:00:00+02:00'); // 14 settembre 2026, ore 12:00 (ora italiana)
+    var now = new Date();
+    if (now >= target) {
+      var card = document.getElementById('vol2-card');
+      if (card) {
+        var link = document.createElement('a');
+        link.href = 'vol-2/index.html';
+        link.className = 'issue-card';
+        link.innerHTML = card.innerHTML;
+        card.replaceWith(link);
+      }
+    }
+  })();
+</script>
+  
 </body>
 </html>
